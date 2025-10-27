@@ -330,7 +330,6 @@ const editSlug = Astro.url.searchParams.get('edit')
           const res = await fetch('/api/editor/github-status');
           if (!res.ok) return;
           githubStatus = await res.json();
-          console.log(githubStatus,"---")
           
           if (githubStatus.configured) {
             githubStatusDiv.className = 'mb-4 rounded-lg p-3 text-sm bg-green-100 border border-green-300 text-green-800 dark:bg-green-900 dark:border-green-700 dark:text-green-200';
