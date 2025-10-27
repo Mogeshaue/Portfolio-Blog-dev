@@ -2,9 +2,9 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Spidey @ NOVA",
+  TITLE: "Mogesh",
   DESCRIPTION: "Exploring CTFs, exploits, and security research as part of Team NOVA. Hack. Learn. Share.",
-  AUTHOR: "Spidey",
+  AUTHOR: "Mogesh",
 }
 
 // Work Page
@@ -60,8 +60,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "Email",
     ICON: "email", 
-    TEXT: "itsmepradyun@proton.me",
-    HREF: "mailto:itsmepradyun@proton.me",
+    TEXT: "mogeshaue@gmail.com",
+    HREF: "mailto:mogeshaue@gmail.com",
   },
   // { 
   //   NAME: "Github",
@@ -72,8 +72,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
-    TEXT: "Pradyun",
-    HREF: "https://linkedin.com/in/pradyun-rengasamy/",
+    TEXT: "Mogesh",
+    HREF: "https://linkedin.com/in/mogesh-me/",
   },
   // { 
   //   NAME: "Twitter",
