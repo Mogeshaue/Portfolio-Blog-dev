@@ -1,12 +1,12 @@
 ---
-company: "Hack The Box"
-role: "Pro Hacker"
-dateStart: "01/01/2023"
-dateEnd: "Now"
+company: "IQube"
+role: "Front end develper"
+dateStart: "01/05/2024"
+dateEnd: "20/05/2024"
 ---
 
-[Hack The Box](https://app.hackthebox.com/users/1588827) provided hands-on experience across domains like penetration testing, networking, cryptography, web exploitation, and digital forensics. This platform significantly contributed to my practical skill development and sharpened my problem-solving abilities.
-
-- Solved advanced real-world hacking labs and CTFs.
-- Improved methodology for OSINT, privilege escalation, and red teaming.
-- Ranked globally among thousands of cybersecurity enthusiasts.
+[Jananam](https://app.hackthebox.com/users/1588827) 
+ Worked as part of a team developing a MERN-based ticketing system that handled 1,000+ concurrent users with stable high-throughput performance.
+Contributed to backend enhancements that achieved zero failed transactions and zero downtime during peak loads.
+Helped implement bay-based seating, dynamic discounts, and digital check-in/out features that streamlined event operations.
+Collaborated on reusable UI components and automated Microsoft Teams notifications to improve coordination and reduce manual communication overhead.

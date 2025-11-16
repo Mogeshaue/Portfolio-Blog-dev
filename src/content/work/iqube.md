@@ -1,12 +1,12 @@
 ---
 company: "iQube Innovations"
-role: "Pentester"
-dateStart: "08/01/2023"
-dateEnd: "Now"
+role: "Web developer"
+dateStart: "04/02/2025"
+dateEnd: "March 2025"
 ---
 
-As part of [iQube](https://iqubekct.ac.in) Innovations, I gained live pentesting experience, handled internal network security projects, and contributed to securing server infrastructure. This role enabled me to translate theoretical knowledge into real-world applications.
-
-- Conducted vulnerability assessments and infrastructure hardening.
-- Collaborated on internal red-teaming efforts and firewall configurations.
-- Supported secure deployment of student-run services and forums.
+As part of [yugam](https://yugam.in)
+ I gained  Production level Contributed to the fest platform used by 10,000+ participants across 100+ events to enable secure QR-based validations.
+Worked with the backend team to improve caching and database performance, resulting in a 40% performance boost and zero downtime during peak traffic.
+Assisted in migrating payment operations to Razorpay, saving organizers Rs. 2,00,000 in transaction fees.
+Collaborated on automating certificate generation and pricing workflows to reduce manual effort for administrators.
