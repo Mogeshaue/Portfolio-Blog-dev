@@ -9,7 +9,7 @@
 
 **DMCA TAKEDOWN NOTICE**
 
-**Copyright Owner Information:**
+**Copyright Owner Information:**    
 - Name: Pradyun R
 - Email: [Your Email Address]
 - Repository: https://github.com/r-pradyun/spidey_blog_enhance
