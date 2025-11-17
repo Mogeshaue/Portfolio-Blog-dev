@@ -1,4 +1,4 @@
-# 🕷️ Spidey Blog - Enhanced Astro Blog with GitHub Integration
+#Enhanced Astro Blog with GitHub Integration
 
 A modern, feature-rich blog built with Astro that includes a built-in MDX editor, GitHub integration, and advanced content management capabilities. Perfect for developers who want a powerful blog with seamless deployment to Vercel.
 
@@ -54,8 +54,8 @@ A modern, feature-rich blog built with Astro that includes a built-in MDX editor
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/r-pradyun/spidey_blog_enhance.git
-   cd spidey_blog_enhance
+   git clone 
+   cd portfolio-blog
    ```
 
 2. **Install dependencies**
@@ -130,7 +130,7 @@ A modern, feature-rich blog built with Astro that includes a built-in MDX editor
 ## 📁 Project Structure
 
 ```
-spidey_blog_enhance/
+portfolio-blog/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   ├── content/            # Blog content and configuration
