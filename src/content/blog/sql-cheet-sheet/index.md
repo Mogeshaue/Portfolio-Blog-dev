@@ -6,6 +6,7 @@ summary: this is an cheet sheet of sql prctice
 tags: []
 ---
 
+
 # 🚀 SQL Quick Reference - Django ORM to SQL Cheat Sheet
 
 ---
@@ -526,4 +527,5 @@ print(HostelApproval.objects.filter(status='PENDING').query)
 ---
 
 **Remember: The best way to learn is to practice! 🚀**
+
 
