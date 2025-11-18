@@ -2,9 +2,10 @@
 title: Mastery sql
 date: "2025-11-18"
 draft: false
-summary: Master guid for sql
-tags: []
+summary: Master guide for sql
+tags: ["tagggg"]
 ---
+
 
 # 🎓 SQL Mastery Guide - From Beginner to Expert
 ## Using Your Campus Plus Project
@@ -1394,4 +1395,5 @@ psql -U your_user -d campus_plus
 > Start with simple SELECT queries and build up!
 
 Good luck! 🚀
+
 
