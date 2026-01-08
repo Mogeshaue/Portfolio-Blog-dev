@@ -2,8 +2,10 @@
 title: Prompts
 date: "2026-01-07"
 draft: false
-tags: []
+summary: "Basic prompts to learn in-depth of anything"
+tags: ["prompt engineering"]
 ---
+
 
 # Universal Topic Exploration Prompt Template
 
@@ -172,3 +174,4 @@ The key to deep learning is asking:
 - **WHERE** does this fit in the bigger picture?
 
 Don't just memorize WHAT things are. Understand the reasoning behind them!
+
