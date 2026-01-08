@@ -7,6 +7,7 @@ tags: ["prompt engineering"]
 ---
 
 
+
 # Universal Topic Exploration Prompt Template
 
 Use this prompt structure to deeply explore ANY technical topic:
@@ -174,4 +175,5 @@ The key to deep learning is asking:
 - **WHERE** does this fit in the bigger picture?
 
 Don't just memorize WHAT things are. Understand the reasoning behind them!
+
 
