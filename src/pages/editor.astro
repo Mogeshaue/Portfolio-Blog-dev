@@ -97,20 +97,23 @@ const editSlug = Astro.url.searchParams.get('edit')
       </div>
 
       <label class="flex flex-col">
-        <span class="mb-1 text-sm font-medium">Summary</span>
+        <span class="mb-1 text-sm font-medium">Summary *</span>
         <textarea
           id="summary"
           class="min-h-[80px] rounded border border-gray-300 p-2 dark:bg-gray-900"
+          required
+          placeholder="Brief description of your blog post"
         ></textarea>
       </label>
 
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         <label class="flex flex-col">
-          <span class="mb-1 text-sm font-medium">Tags (comma separated)</span>
+          <span class="mb-1 text-sm font-medium">Tags * (comma separated)</span>
           <input
             id="tags"
             class="rounded border border-gray-300 p-2 dark:bg-gray-900"
             placeholder="nextjs, tailwind, mdx"
+            required
           />
         </label>
         <label class="flex flex-col">
@@ -389,11 +392,33 @@ const editSlug = Astro.url.searchParams.get('edit')
       async function handleSubmit(e) {
         e.preventDefault();
         
-        const title = titleInput.value;
+        const title = titleInput.value.trim();
         const date = dateInput.value;
+        const summary = summaryInput.value.trim();
+        const tags = tagsInput.value.trim();
         
-        if (!title || !date) {
-          showMessage('Title and date are required', 'error');
+        // Validate required fields based on content schema
+        if (!title) {
+          showMessage('❌ Title is required', 'error');
+          titleInput.focus();
+          return;
+        }
+        
+        if (!summary) {
+          showMessage('❌ Summary is required', 'error');
+          summaryInput.focus();
+          return;
+        }
+        
+        if (!date) {
+          showMessage('❌ Date is required', 'error');
+          dateInput.focus();
+          return;
+        }
+        
+        if (!tags) {
+          showMessage('❌ At least one tag is required', 'error');
+          tagsInput.focus();
           return;
         }
 
@@ -640,4 +665,38 @@ const editSlug = Astro.url.searchParams.get('edit')
       }
     });
   </script>
+  
+  <style>
+    /* Required field indicator */
+    label:has(input[required])::before,
+    label:has(textarea[required])::before {
+      content: '';
+    }
+    
+    /* Validation feedback */
+    input:invalid:not(:placeholder-shown),
+    textarea:invalid:not(:placeholder-shown) {
+      border-color: #ef4444;
+    }
+    
+    input:valid:not(:placeholder-shown),
+    textarea:valid:not(:placeholder-shown) {
+      border-color: #10b981;
+    }
+    
+    /* Focus states */
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    
+    /* Error message styling */
+    .error-message {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  </style>
 </PageLayout>
