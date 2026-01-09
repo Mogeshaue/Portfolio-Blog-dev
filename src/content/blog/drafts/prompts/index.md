@@ -1,5 +1,6 @@
 ---
 title: Prompts
+summary: Universal prompt templates for exploring technical topics
 date: "2026-01-07"
 draft: true
 tags: []
