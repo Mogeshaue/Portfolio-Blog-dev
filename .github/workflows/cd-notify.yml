@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
   notify:
-    if: failure()
+    if: always() && needs.build.result == 'failure'
     needs: build
     runs-on: ubuntu-latest
     steps:
