@@ -1,4 +1,4 @@
-name: CD Build & Notify
+name: Build & Notify
 
 on:
   push:
@@ -44,12 +44,17 @@ jobs:
             const title = `CD failure on ${branch} - ${shortSha}`;
             const runUrl = `${context.server_url}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            const searchQuery = `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "${title}"`;
-            const { data: searchResults } = await github.rest.search.issuesAndPullRequests({
-              q: searchQuery,
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
             });
+            const existingIssue = issues.find(
+              (issue) => !issue.pull_request && issue.title === title
+            );
 
-            if (searchResults.total_count > 0) {
+            if (existingIssue) {
               core.info('Open issue already exists for this failure.');
               return;
             }
