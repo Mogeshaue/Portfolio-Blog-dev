@@ -1,0 +1,71 @@
+name: CD Build & Notify
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+  notify:
+    if: ${{ failure() }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue for failed CD build
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch =
+              context.payload.pull_request?.head?.ref ??
+              context.ref.replace('refs/heads/', '');
+            const shortSha = context.sha.slice(0, 7);
+            const title = `CD failure on ${branch} (${shortSha})`;
+            const runUrl = `${context.server_url}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            const searchQuery = `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "${title}"`;
+            const { data: searchResults } = await github.rest.search.issuesAndPullRequests({
+              q: searchQuery,
+            });
+
+            if (searchResults.total_count > 0) {
+              core.info('Open issue already exists for this failure.');
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body: [
+                'A CD workflow run failed and needs attention.',
+                '',
+                `- Branch: ${branch}`,
+                `- Commit: ${context.sha}`,
+                `- Actor: @${context.actor}`,
+                `- Run: ${runUrl}`,
+              ].join('\n'),
+            });
