@@ -43,7 +43,7 @@ jobs:
             const title = `Build failure on ${branch}`;
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            const searchQuery = `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "Build failure on ${branch}"`;
+            const searchQuery = `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "${title}"`;
             const { data: searchResults } =
               await github.rest.search.issuesAndPullRequests({
                 q: searchQuery,
