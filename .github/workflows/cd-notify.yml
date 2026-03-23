@@ -41,15 +41,18 @@ jobs:
           script: |
             const branch = context.ref.replace('refs/heads/', '');
             const shortSha = context.sha.slice(0, 7);
-            const title = `CD failure on ${branch} - ${shortSha}`;
+            const title = `Build failure on ${branch}`;
             const runUrl = `${context.server_url}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 100,
-            });
+            const issues = await github.paginate(
+              github.rest.issues.listForRepo,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                per_page: 100,
+              }
+            );
             const existingIssue = issues.find(
               (issue) => !issue.pull_request && issue.title === title
             );
@@ -64,7 +67,7 @@ jobs:
               repo: context.repo.repo,
               title,
               body: [
-                'A CD workflow run failed and needs attention.',
+                'A build workflow run failed and needs attention.',
                 '',
                 `- Branch: ${branch}`,
                 `- Commit: ${context.sha}`,
