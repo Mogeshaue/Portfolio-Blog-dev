@@ -44,7 +44,14 @@ jobs:
             const title = `CD failure on ${branch} (${shortSha})`;
             const runUrl = `${context.server_url}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
 
-            const searchQuery = `repo:${context.repo.owner}/${context.repo.repo} is:issue is:open in:title "${title}"`;
+            const searchQuery = [
+              `repo:${context.repo.owner}/${context.repo.repo}`,
+              'is:issue',
+              'is:open',
+              'in:title',
+              `"CD failure on ${branch}"`,
+              shortSha,
+            ].join(' ');
             const { data: searchResults } = await github.rest.search.issuesAndPullRequests({
               q: searchQuery,
             });
